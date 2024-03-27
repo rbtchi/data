@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>askdjfkasjdfkljds;</h1>
+    <script>
+        const getapi = async function(){
+          await fetch('https://api-zo80.onrender.com/')
+            .then((response) => {
+                // 操作 response 屬性、方法
+                return response.json();
+            })
+            .then((data) => {
+                // 實際存取到資料
+                console.log(data);
+            })
+            .catch((error) => {
+                // 錯誤回應
+                console.log(error);
+            });
+
+        }
+        getapi();
+    </script>
+</body>
+</html>
