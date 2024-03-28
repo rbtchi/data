@@ -6,7 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>static</h1>
+    <h1>get</h1>
+    <ul></ul>
     <script>
         const getapi = async function(){
           await fetch('https://api-zo80.onrender.com/')
@@ -17,12 +18,15 @@
             .then((data) => {
                 // 實際存取到資料
                 console.log(data);
+                data.forEach(user => {
+                    const markup = `<li>${user.name}<br/>${user.email}</li>`;
+                    document.querySelector('ul').insertAdjacentHTML('beforeend',markup)
+                });
             })
             .catch((error) => {
                 // 錯誤回應
                 console.log(error);
             });
-
         }
         getapi();
     </script>
