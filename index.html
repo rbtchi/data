@@ -8,7 +8,17 @@
 <body>
     <h1>get</h1>
     <ul></ul>
+    <h1>post</h1>
+    <div class="form">
+        <form action="" id="form">
+            <input type="text" name="user" type="text">
+            <input type="text" name="password" type="password">
+            <button type="submit">submit</button>
+        </form>
+
+    </div>
     <script>
+        // get
         const getapi = async function(){
           await fetch('https://api-zo80.onrender.com/')
             .then((response) => {
@@ -29,6 +39,20 @@
             });
         }
         getapi();
+        // post 
+        const form = document.getElementById('form');
+        form.addEventListener('submit',function(e){
+            e.preventDefault();
+            const payload = new FormData(form);
+            console.log([...payload])
+            fetch('https://api-zo80.onrender.com/',{
+                method:'POST',
+                body:payload,
+            })
+            .then( res => res.json() )
+            .then( data => console.log(data) )
+            .catch(err=>console.log(err))
+        })
     </script>
 </body>
 </html>
